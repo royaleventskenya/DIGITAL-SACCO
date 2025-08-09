@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SACCO Platform — Member Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <img src="" alt="" class="logo" aria-hidden="true"/>
+      <h1>SACCO Platform</h1>
+    </div>
+    <nav class="topnav">
+      <button id="nav-login" class="nav-btn">Login</button>
+      <button id="nav-dashboard" class="nav-btn hidden">Dashboard</button>
+      <button id="nav-logout" class="nav-btn hidden">Logout</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- LOGIN -->
+    <section id="login-section" class="panel">
+      <h2>Member Login</h2>
+      <div class="form-row">
+        <label for="login-email">Email</label>
+        <input id="login-email" type="email" placeholder="you@example.com" />
+      </div>
+      <div class="form-row">
+        <label for="login-password">Password</label>
+        <input id="login-password" type="password" placeholder="••••••••" />
+      </div>
+      <div class="form-row">
+        <button id="login-btn" class="btn">Login</button>
+      </div>
+      <p id="login-error" class="error"></p>
+      <small class="muted">Demo mode: This front-end expects a Laravel backend with /auth/login.</small>
+    </section>
+
+    <!-- DASHBOARD -->
+    <section id="dashboard-section" class="panel hidden">
+      <div class="dash-header">
+        <h2>Welcome, <span id="user-name">Member</span></h2>
+        <div class="balance-card">
+          <label>Savings</label>
+          <div id="savings-balance" class="balance">KES 0.00</div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="grid">
+        <div class="card">
+          <h3>Make a Deposit</h3>
+          <div class="form-row">
+            <input id="deposit-amount" type="number" min="1" placeholder="Amount (KES)" />
+          </div>
+          <div class="form-row">
+            <button id="deposit-btn" class="btn">Deposit (simulate)</button>
+          </div>
+          <p class="muted">In production tie this to MPesa/Stripe via the backend.</p>
+        </div>
+
+        <div class="card">
+          <h3>Apply for Loan</h3>
+          <div class="form-row">
+            <label for="loan-amount">Amount (KES)</label>
+            <input id="loan-amount" type="number" min="1000" placeholder="e.g., 50000" />
+          </div>
+          <div class="form-row">
+            <label for="loan-term">Term (months)</label>
+            <input id="loan-term" type="number" min="1" max="60" value="6" />
+          </div>
+          <div class="form-row">
+            <textarea id="loan-purpose" rows="2" placeholder="Purpose (brief)"></textarea>
+          </div>
+          <div class="form-row">
+            <button id="loan-apply-btn" class="btn">Apply for Loan</button>
+          </div>
+          <p id="loan-apply-msg" class="muted"></p>
+        </div>
+      </div>
+
+      <!-- Loans list -->
+      <div class="card full">
+        <h3>Your Loans</h3>
+        <ul id="loans-list" class="list"></ul>
+      </div>
+
+      <!-- Transactions list -->
+      <div class="card full">
+        <h3>Recent Transactions</h3>
+        <ul id="transactions-list" class="list"></ul>
+      </div>
+    </section>
+
+    <!-- LOAN REPAY MODAL (simple) -->
+    <div id="repay-modal" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal-content">
+        <button class="modal-close" id="repay-close">&times;</button>
+        <h3>Repay Loan</h3>
+        <p id="repay-loan-info"></p>
+        <div class="form-row">
+          <label for="repay-amount">Amount (KES)</label>
+          <input id="repay-amount" type="number" min="1" />
+        </div>
+        <div class="form-row">
+          <label for="repay-phone">Mobile Number (2547..)</label>
+          <input id="repay-phone" type="tel" placeholder="2547XXXXXXXX" />
+        </div>
+        <div class="form-row">
+          <button id="repay-btn" class="btn">Pay with MPesa (STK Push)</button>
+        </div>
+        <p id="repay-msg" class="muted"></p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 SACCO Platform — Static Frontend</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
