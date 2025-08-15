@@ -1,1 +1,15 @@
-
+{  
+  "name": "vercel-sacco-api",  
+  "version": "1.0.0",  
+  "private": true,  
+  "scripts": {  
+    "dev": "vercel dev",  
+    "start": "vercel dev"  
+  },  
+  "dependencies": {  
+    "@supabase/supabase-js": "^2.0.0",  
+    "bcryptjs": "^2.4.3",  
+    "jsonwebtoken": "^9.0.0",  
+    "node-fetch": "^3.4.1",  
+    "uuid": "^9.0.0"  
+  }  
